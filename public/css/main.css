@@ -1,0 +1,36 @@
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+@import url('bootstrap/bootstrap.css');
+@import url('bootstrap/bootstrap-responsive.css');
+@import url('jquery-ui/smoothness-1.10.3.css');
+@import url('font/font-awesome.css');
+@import url('theme.css');
+@import url('modal.css');
+@import url('card.css');
+@import url('header.css');
+@import url('navigation.css');
+@import url('viewport.css');
+@import url('forms.css');
+@import url('tabs.css');
+
+.scale, .pan { 
+	cursor: pointer;
+}
+
+.highlight { 
+	box-shadow: 0 0 15px rgba(255, 255, 255, 1) !important;
+}
+
+div.tweet { 
+	margin-bottom: 10px;
+}
+
+.carousel-caption {
+  margin-top: 4px;
+}
+
+.masthead {
+  height: 250px;
+}

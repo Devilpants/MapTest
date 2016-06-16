@@ -1,0 +1,13 @@
+#card-link-modal div.card-link {
+	max-width: 90%;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+}
+
+.modal {
+	z-index: 15001 !important;
+}
+
+.modal-backdrop { 
+	z-index: 15000 !important;
+}
