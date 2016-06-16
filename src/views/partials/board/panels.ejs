@@ -1,0 +1,62 @@
+ <div data-role="panel" data-position="right" id="card-list" data-display="overlay">
+    <h1>Card List</h1>
+    <ul data-role="listview" data-inset="true">
+    
+        <li class="no-cards <% if (cards.length > 0) { %>hidden<% } %>" data-icon="false"><a href="#">No cards at present</a></li>
+        <% for (var i = 0; i < cards.length; i++) { %>
+        <li id="entry-<%= cards[i]._id %>" data-icon="false">
+            <a href="#<%= cards[i]._id %>">
+                <span class="card-colour card-<%= cards[i].cssClass || 'yellow' %>">&nbsp;</span>
+                <span class="content">
+                <% if (cards[i].content && cards[i].content.length > 0) { %>
+                    <%= cards[i].content.substr(0, 20) %>...
+                <% } else { %>
+                    <i>No content</i>
+                <% } %>
+                </span>
+            </a>
+        </li>
+        <% } %>
+    </ul>
+</div>
+
+<div data-role="panel" data-position="right" id="user-list" data-display="overlay">
+    <h1>User List</h1>
+    <p>There are <span class="usercount">0</span> user(s).</p>
+    <ul data-role="listview" data-inset="true"></ul>
+</div>
+
+<div data-role="panel" id="settings" data-display="overlay" data-position="right">
+    <h1>Settings</h1>
+    <ul data-role="listview" data-inset="true" data-divider-theme="a">
+        <li data-role="list-divider">User Settings</li>
+        <li><a href="#set-name-modal" data-rel="popup" data-position-to="window" data-transition="pop">Set name</a></li>
+        <li><a href="/login?id=<%= boardId %>" title="Change access level" class="change-access-level">Change access <p class="ui-li-aside"><%= access %></p></a></li>
+        <li><a href="/logout" class="leave">Logout</a></li>
+    </ul>
+    <ul data-role="listview" data-inset="true" data-divider-theme="a">        
+        <li data-role="list-divider">Board Settings</li>
+        <li><a href="#set-board-name-modal" data-rel="popup" data-position-to="window" data-transition="pop">Set board name</a></li>
+        <li><a href="#" class="open-board-access-modal admin">Set password</a></li>
+        <li><a href="#" class="open-board-grid-modal admin">Set up grid</a></li>
+    </ul>
+
+</div>
+
+<div data-role="panel" id="more-settings" data-position="right" data-display="overlay">
+    <h1>About</h1>
+    <ul data-role="listview" data-inset="true" data-divider-theme="a">
+        <li data-role="list-divider">Site</li>
+        <li><a href="http://go.pinitto.me/contact">Contact us</a></li>
+        <li><a href="http://go.pinitto.me/about">About</a><li>
+    </ul>
+    <ul data-role="listview" data-inset="true" data-divider-theme="a">
+        <li data-role="list-divider">Project</li>
+        <li><a target="_blank" href="https://github.com/pinittome/pinitto.me">Source code</a></li>
+        <li><a target="_blank" href="https://github.com/pinittome/pinitto.me/issues">Bugs</a></li>
+        <li><a target="_blank" href="http://pinittome.github.com">Documentation</a></li>
+        <li data-icon="false"><a href="#">Version: <%= app.version %><% if (app.environment === 'development') { %>-development<% } %></a></li>
+        
+    </ul>
+
+</div>

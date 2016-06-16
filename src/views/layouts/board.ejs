@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+    <title>Viewing board: <%=boardName %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="text/javascript">
+        config      = <%- JSON.stringify(app) %>
+        boardConfig = <%- JSON.stringify(config) %>
+        accessLevel = '<%= access %>'
+        boardId = '<%= boardId %>'
+    </script>
+    <link rel="stylesheet" href="//code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" />
+</head>
+<body class="board ui-body-b ui-body">
+    <% include ../partials/connection-status-modal%>
+    <div data-role="page">
+
+        <div data-role="header" class="ui-grid-a">
+            <div class="ui-block-a">
+            <h4 class="board-name"><%=boardName %></h4>
+            </div>
+            <div data-role="navbar"  data-iconpos="notext" class="ui-block-b">
+              
+                <a title="Card List" href="#card-list"  class="card-list ui-button-icon-only" data-icon="grid" >Card List</a>
+                <a title="User list" href="#user-list" data-icon="user">User List</a>
+                <a title="Settings" href="#settings" data-icon="gear ui-button-icon-only">Settings</a>
+                <a title="More" href="#more-settings" data-icon="plus ui-button-icon-only">About</a>
+            </div>
+        </div>
+        <div data-role="content" class="container">
+            <%- body %>
+            <% include ../partials/board/panels %>
+            <% include ../partials/name-modal %>
+            <% include ../partials/board-name-modal %>
+            <% include ../partials/board-access-modal %>
+            <% include ../partials/board-grid-modal %>
+            <% include ../partials/card-link-modal %>
+        </div>
+
+    </div>
+
+        <script type="text/javascript" src="/js/vendor/es5-shim/es5-shim.min.js"></script>
+        <script type="text/javascript" src="/js/vendor/es5-shim/es5-sham.min.js"></script>
+        <% if (!app.useOptimised) { %>
+        <script data-main="/js/app.js" src="/js/require.js"></script>
+        <link rel="stylesheet" href="/style/main.css" />
+        <% } else { %>
+        <script src="/app.<%= app.version %>.js"></script>
+        <link rel="stylesheet" href="/app.<%= app.version %>.css" />
+        <% } %>
+
+    </body>
+</html>

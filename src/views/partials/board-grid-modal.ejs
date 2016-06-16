@@ -1,0 +1,43 @@
+<div data-role="popup" data-dialog="true" id="board-grid-modal"  data-overlay-theme="b" data-theme="a" data-dismissible="false" class="ui-content admin">
+    <div data-role="header" data-theme="b">
+        <h1>Setup board grid</h1>
+    </div>
+    <div data-role="main" class="ui-content">
+	    <form class="form-horizontal">
+	        <div class="control-group">
+	            <label class="control-label" for="grid-size">Card size increment</label>
+	            <div class="controls">
+			        <select name="grid-size" class="grid-size">
+			            <option value="none">Free form</option>
+			            <option value="small">Small</option>
+			            <option value="medium">Medium</option>
+			            <option value="large">Large</option>
+			        </select>
+	            </div>
+	        </div>
+	        <div class="control-group">
+	            <label class="control-label" for="grid-position">Position grid size</label>
+	            <div class="controls">
+	                <select name="grid-position" class="grid-position">
+			            <option value="none">Free form</option>
+			            <option value="small">Small</option>
+			            <option value="medium">Medium</option>
+			            <option value="large">Large</option>
+			        </select>
+			    </div>
+	        </div>
+	        <p>If changing grid systems the cards on the board may jump and 
+	        resize slightly to fit with the new grid settings. So just tick 
+	        the box to let us know that you've read and understood this:</p>
+	        <div class="control-group">
+	            <div class="controls">
+	                <label class="checkbox">
+	                    <input type="checkbox" class="grid-confirm" /> Sure thing
+	                </label>
+	            </div>
+	        </div>
+	    </form>
+        <button id="close-board-grid-modal" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back">Close</button>
+        <button id="update-board-grid" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back">Update grid settings</button>
+    </div> 
+</div>

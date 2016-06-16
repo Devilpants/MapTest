@@ -1,0 +1,61 @@
+<div id="login" class="container">
+<div class="row">
+<div class="span12">
+    <h1>Login</h1>
+</div>
+</div>
+    <% if (typeof(errors.login) != 'undefined') { %>
+    <script type="text/javascript">
+    errors.login = <%- JSON.stringify(errors.login) %>
+    </script>
+    <% } %>
+    <div class="row">
+        <div class="span7">
+            <% if (typeof boardId != 'undefined') { %>
+            <h2>This board requires authorisation</h2>
+            <% } %>
+            <form class="form-horizontal" method="post" id="login-form" action="/#login">
+                <fieldset>
+                    <legend>Access details</legend>
+                    <div class="control-group board-id">
+                        <label class="control-label" for="owner">Board ID</label>
+                        <div class="controls">
+                        <% if (typeof boardId != 'undefined') { %>
+                            <%=boardId %><input type="hidden" name="board" value="<%=boardId %>" />
+                        <% } else { %>
+                            <input type="text" name="board" placeholder="Board ID" required="true" />
+                        <% } %>
+                        </div>
+                    </div>
+                    <div class="control-group board-password">
+                        <label class="control-label" for="password">Password</label>
+                        <div class="controls">
+                            <input type="password" name="password" placeholder="" />
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="control-group" >
+                    <div class="form-actions">
+                        <% if (typeof referrer == 'undefined') referrer = '' %>
+                        <input type="hidden" name="referrer" value="<%=referrer %>" />
+                        <button type="submit" class="btn btn-primary">Get me some access...</button>
+                        <button type="button" class="btn leave">Cancel</button>
+                    </div>
+                </div>
+                <input type="hidden" name="form" value="login" />
+            </form>
+        </div>
+        <div class="span5">
+            <h2>Help</h2>
+            <p>Enter a password here to get access to the board.</p>
+            <% if (typeof boardId != 'undefined') { %>
+            <p>If you believe you should be able to access this 
+            board without a password then
+            <a href="/<%=boardId%>" title="Attempt board access 
+            without a password">click here</a> to attempt board 
+            access without a password.</p>
+            <% } %>
+       </div>
+    </div>
+</div>
